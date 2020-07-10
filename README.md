@@ -58,27 +58,6 @@ All of the npm scripts is in Makefile, so you can us it
 
 The husky and lint-staged will not let you make a mistake, pre-comit and pre-push are always on guard!
 
-## Development
-
-Contribute? Sure!
-This is an opensource project, so all of the contributions are welcome. Make a fork and go!
-
-| Todos       | Status |
-| ----------- | ------ |
-| Nodemon     | +      |
-| Tests       | +      |
-| ESLint      | +      |
-| Lint-staged | +      |
-| Prettier    | +      |
-| Husky       | +      |
-| Logger      | -      |
-| CI\CD       | -      |
-| Docker      | -      |
-| Postgres    | -      |
-| Workers     | -      |
-| WebSockets  | -      |
-| VMContexts  | -      |
-
 ---
 
 ## License
