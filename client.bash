@@ -4,5 +4,5 @@
 
 curl --header "Content-Type: application/json" \
   --request POST \
-  --data '{"username":"xyz","password":"xyz"}' \
+  -d "{\"login\":\"${1}\",\"password\":\"${1}\"}" \
   http://localhost:3000/
