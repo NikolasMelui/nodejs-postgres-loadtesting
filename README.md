@@ -1,6 +1,6 @@
-# 🔥 Nikolasmelui Nodejs Boilerplate
+# Node.js Postgres Loadtesting
 
-Nikolasmelui Nodejs Boilerplate powered by [NikolasMelui][nikolasmelui] is a lightweight nodejs boilerplate using [eslint][eslint], [prettier][prettier], [lint-staged][lint-staged], [husky][husky] and [nodemon][nodemon] onboard. Just clone it, `nmp i`, `npm start` and have fun!
+Testing the load on the Node.js http server using postgres. Based on [Nikolasmelui Nodejs Boilerplate][Nikolasmelui Nodejs Boilerplate] powered by [NikolasMelui][nikolasmelui] (lightweight [Node.js][Node.js] boilerplate using [eslint][eslint], [prettier][prettier], [lint-staged][lint-staged], [husky][husky] and [nodemon][nodemon] onboard). Using [pg][pg] module for working with postgres.
 
 ## Installation
 
@@ -96,10 +96,12 @@ SOFTWARE.
 
 [//]: # "These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax"
 [nikolasmelui]: https://github.com/NikolasMelui
-[nodejs]: http://nodejs.org
-[npm]: https://www.npmjs.com/
-[eslint]: https://eslint.org/
-[prettier]: https://prettier.io/
-[lint-staged]: https://github.com/okonet/lint-staged
-[husky]: https://github.com/typicode/husky
-[nodemon]: https://www.npmjs.com/package/nodemon
+[Nikolasmelui Nodejs Boilerplate]:`https://github.com/git@github.com:NikolasMelui/nikolasmelui-nodejs-boilerplate.git`
+[Node.js]:`http://nodejs.org`
+[npm]:`https://www.npmjs.com/`
+[eslint]:`https://eslint.org/`
+[prettier]:`https://prettier.io/`
+[lint-staged]:`https://github.com/okonet/lint-staged`
+[husky]:`lhttps://github.com/typicode/husky`
+[nodemon]:`https://www.npmjs.com/package/nodemon`
+[pg]:`https://github.com/brianc/node-postgres`
