@@ -5,7 +5,7 @@ start: ;@echo "Starting the project...\n"; \
 develop: ;@echo "Starting the project in develop mode with nodemon...\n"; \
 	./node_modules/.bin/nodemon ./src/server.js
 client: ;@echo "Starting the client (mock with bash script)...\n"; \
-	bash ./client.bash
+	bash ./client.bash $(login) $(password)
 debug: ;@echo "Starting the project in debug mode with nodemon...\n"; \
 	./node_modules/.bin/nodemon . --inspect ./src/server.js
 eslint: ;@echo "Eslinting the project...\n"; \
