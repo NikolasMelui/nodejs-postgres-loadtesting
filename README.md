@@ -1,6 +1,6 @@
 # Node.js Postgres Loadtesting
 
-Testing the load on the Node.js http server using postgres. Based on [Nikolasmelui Nodejs Boilerplate][Nikolasmelui Nodejs Boilerplate] powered by [NikolasMelui][nikolasmelui] (lightweight [Node.js][Node.js] boilerplate using [eslint][eslint], [prettier][prettier], [lint-staged][lint-staged], [husky][husky] and [nodemon][nodemon] onboard). Using [pg][pg] module for working with postgres.
+Testing the load on the Node.js http server using postgres. Based on [Nikolasmelui Nodejs Boilerplate][nikolasmelui nodejs boilerplate] powered by [NikolasMelui][nikolasmelui] (lightweight [Node.js][node.js] boilerplate using [eslint][eslint], [prettier][prettier], [lint-staged][lint-staged], [husky][husky] and [nodemon][nodemon] onboard). Using [pg][pg] module for working with postgres.
 
 ## Installation
 
@@ -34,6 +34,20 @@ Or if you need to debug with an inspector:
 
 ```bash
 npm run debug
+```
+
+## Client (mock bashscript as a client)
+
+Use the npm scrpt `client` with passing the arguments `login` and `password`:
+
+```bash
+login=your_login password=your_password npm run client
+```
+
+Or u can use the Makefile:
+
+```bash
+make client login=your_login password=your_password
 ```
 
 ## Makefile
@@ -96,12 +110,12 @@ SOFTWARE.
 
 [//]: # "These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax"
 [nikolasmelui]: https://github.com/NikolasMelui
-[Nikolasmelui Nodejs Boilerplate]:`https://github.com/git@github.com:NikolasMelui/nikolasmelui-nodejs-boilerplate.git`
-[Node.js]:`http://nodejs.org`
-[npm]:`https://www.npmjs.com/`
-[eslint]:`https://eslint.org/`
-[prettier]:`https://prettier.io/`
-[lint-staged]:`https://github.com/okonet/lint-staged`
-[husky]:`lhttps://github.com/typicode/husky`
-[nodemon]:`https://www.npmjs.com/package/nodemon`
-[pg]:`https://github.com/brianc/node-postgres`
+[nikolasmelui nodejs boilerplate]: `https://github.com/git@github.com:NikolasMelui/nikolasmelui-nodejs-boilerplate.git`
+[node.js]: `http://nodejs.org`
+[npm]: `https://www.npmjs.com/`
+[eslint]: `https://eslint.org/`
+[prettier]: `https://prettier.io/`
+[lint-staged]: `https://github.com/okonet/lint-staged`
+[husky]: `lhttps://github.com/typicode/husky`
+[nodemon]: `https://www.npmjs.com/package/nodemon`
+[pg]: `https://github.com/brianc/node-postgres`
