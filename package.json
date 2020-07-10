@@ -31,7 +31,7 @@
   "scripts": {
     "start": "node ./src/server.js",
     "develop": "./node_modules/.bin/nodemon ./src/server.js",
-    "client": "bash ./client.bash",
+    "client": "bash ./client.bash $login $password",
     "debug": "./node_modules/.bin/nodemon . --inspect ./src/server.js",
     "eslint": "./node_modules/.bin/eslint ./src/ --max-warnings=0",
     "eslint:fix": "./node_modules/.bin/eslint ./src/ --fix",
