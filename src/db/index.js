@@ -1,15 +1,25 @@
 'use strict';
 
+const {
+  DB_HOST,
+  DB_PORT,
+  DB_USER,
+  DB_PASSWORD,
+  DB_MAX_CLIENTS,
+  DB_IDLE_TIMEOUT,
+  DB_CONNECTION_TIMEOUT,
+} = require('../config');
+
 const { Pool } = require('pg');
 
 const pool = new Pool({
-  host: 'localhost',
-  port: 5432,
-  user: 'nodejspgtest',
-  password: 'password',
-  max: 20,
-  idleTimeoutMillis: 30000,
-  connectionTimeoutMillis: 2000,
+  host: DB_HOST,
+  port: DB_PORT,
+  user: DB_USER,
+  password: DB_PASSWORD,
+  max: DB_MAX_CLIENTS,
+  idleTimeoutMillis: DB_IDLE_TIMEOUT,
+  connectionTimeoutMillis: DB_CONNECTION_TIMEOUT,
 });
 
 module.exports = { pool };
