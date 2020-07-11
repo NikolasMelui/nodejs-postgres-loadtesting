@@ -1,43 +1,24 @@
 'use strict';
 
 const http = require('http');
+const Router = require('./router');
 
-const { pool } = require('./db');
 const { APPLICATION_HOST, APPLICATION_PORT } = require('./config');
-const { hashPassword } = require('./helpers');
 
 http
   .createServer(async (req, res) => {
     try {
       req.setEncoding('utf8');
 
-      const { method } = req;
-      if (method !== 'POST')
-        throw new Error('Only POST request method available');
-
-      const body = [];
-      for await (const chunk of req) body.push(chunk);
-
-      const data = JSON.parse(body);
-      const { login, password } = data;
-
-      const { hashedPassword, salt } = await hashPassword(password);
-
-      const dbResult = await pool.query(
-        'INSERT INTO users(login, password, salt) VALUES($1, $2, $3)',
-        [login, hashedPassword, salt],
-      );
-
-      console.info(dbResult);
+      const router = new Router(req);
+      const result = await router.route();
 
       res.writeHead(200, 'OK', { 'Content-Type': 'application/json' });
-      const result = dbResult.rowCount
-        ? 'The user was successfully created'
-        : '...';
-
-      res.end(result);
+      const stringResult = JSON.stringify(result);
+      res.end(stringResult);
     } catch (error) {
       console.error(error);
+      res.writeHead(404, { 'Content-Type': 'text/plain' });
       res.end(error.message);
     }
   })
