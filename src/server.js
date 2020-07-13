@@ -3,7 +3,10 @@
 const http = require('http');
 const Router = require('./router');
 
-const { APPLICATION_HOST, APPLICATION_PORT } = require('./config');
+const {
+  APPLICATION_SERVER_HOST,
+  APPLICATION_SERVER_PORT,
+} = require('./config');
 
 http
   .createServer(async (req, res) => {
@@ -18,12 +21,16 @@ http
       res.end(stringResult);
     } catch (error) {
       console.error(error);
-      res.writeHead(404, { 'Content-Type': 'text/plain' });
-      res.end(error.message);
+      const splittedErrorMessage = error.message.split(', ');
+      const status = Number(splittedErrorMessage[0]);
+      const message = splittedErrorMessage[1];
+      console.log(splittedErrorMessage);
+      res.writeHead(status, { 'Content-Type': 'text/plain' });
+      res.end(message);
     }
   })
-  .listen(APPLICATION_PORT, APPLICATION_HOST, () =>
+  .listen(APPLICATION_SERVER_PORT, APPLICATION_SERVER_HOST, () =>
     console.log(
-      `Server is listening on ${APPLICATION_HOST}:${APPLICATION_PORT}`,
+      `Server is listening on ${APPLICATION_SERVER_HOST}:${APPLICATION_SERVER_PORT}`,
     ),
   );
