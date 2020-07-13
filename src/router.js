@@ -16,7 +16,7 @@ class Router {
   async route() {
     const { method, url } = this.req;
     if (method !== 'POST')
-      throw new Error('The POST request methods only available.');
+      throw new Error('405, The POST request methods only available.');
 
     const parsedUrl = urlParser.parse(url, true);
     const splittedUrl = parsedUrl.path.split('/');
@@ -24,7 +24,7 @@ class Router {
     const methodUrl = splittedUrl[2];
 
     const Domain = this.domains[domainUrl];
-    if (!Domain) throw new Error('Wrong domain.');
+    if (!Domain) throw new Error('404, Wrong domain.');
 
     const body = [];
     for await (const chunk of this.req) body.push(chunk);
@@ -35,7 +35,7 @@ class Router {
 
     console.log(result);
 
-    if (!result) throw new Error('Something went wrong.');
+    if (!result) throw new Error('500, Something went wrong.');
 
     return result;
   }
