@@ -9,9 +9,9 @@ class User {
     this.password = password;
   }
 
-  async register() {
+  async signup() {
     if (!this.login || !this.password)
-      throw new Error('The "login" and "password" fields are required.');
+      throw new Error('422, The "login" and "password" fields are required.');
     const salt = generateSalt();
     const hashedPassword = await hashPassword(this.password, salt);
     const dbResult = await pool.query(
@@ -21,9 +21,9 @@ class User {
     return dbResult.rowCount ? 1 : 0;
   }
 
-  async auth() {
+  async signin() {
     if (!this.login || !this.password)
-      throw new Error('The "login" and "password" fields are required.');
+      throw new Error('422, The "login" and "password" fields are required.');
     const dbResult = await pool.query(
       'SELECT password, salt FROM users where login = $1',
       [this.login],
