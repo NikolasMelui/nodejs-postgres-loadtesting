@@ -1,12 +1,12 @@
 install: ;@echo "Installing dependencies...\n"; \
 	npm i;
-start: ;@echo "Starting the project...\n"; \
+start_client: ;@echo "Starting the project client...\n"; \
+	node ./src/client.js $(arg1) $(arg2)
+start_server: ;@echo "Starting the project server...\n"; \
 	node ./src/server.js
-develop: ;@echo "Starting the project in develop mode with nodemon...\n"; \
+develop_server: ;@echo "Starting the project in develop mode with nodemon...\n"; \
 	./node_modules/.bin/nodemon ./src/server.js
-client: ;@echo "Starting the client (mock with bash script)...\n"; \
-	bash ./client.bash $(login) $(password)
-debug: ;@echo "Starting the project in debug mode with nodemon...\n"; \
+debug_server: ;@echo "Starting the project in debug mode with nodemon...\n"; \
 	./node_modules/.bin/nodemon . --inspect ./src/server.js
 eslint: ;@echo "Eslinting the project...\n"; \
 	./node_modules/.bin/eslint ./src/ --max-warnings=0
