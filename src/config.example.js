@@ -1,6 +1,6 @@
 // const config = {
-//   APPLICATION_HOST: '127.0.0.1',
-//   APPLICATION_PORT: 3000,
+//   APPLICATION_SERVER_HOST: '127.0.0.1',
+//   APPLICATION_SERVER_PORT: 3000,
 //   DB_HOST: 'host',
 //   DB_PORT: 5432,
 //   DB_USER: 'user',
