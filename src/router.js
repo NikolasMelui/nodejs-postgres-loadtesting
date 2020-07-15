@@ -1,16 +1,12 @@
 'use strict';
 const urlParser = require('url');
 
-const User = require('./domains/user');
-const Item = require('./domains/item');
+const { capitalizeFirstLetter } = require('./helpers');
 
 class Router {
-  constructor(req) {
+  constructor(req, domains) {
     this.req = req;
-    this.domains = {
-      user: User,
-      item: Item,
-    };
+    this.domains = domains;
   }
 
   async route() {
@@ -23,21 +19,26 @@ class Router {
     const domainUrl = splittedUrl[1];
     const methodUrl = splittedUrl[2];
 
-    const Domain = this.domains[domainUrl];
-    if (!Domain) throw new Error('404, Wrong domain.');
-
     const body = [];
     for await (const chunk of this.req) body.push(chunk);
-    const data = JSON.parse(body);
+    const data = body.length ? JSON.parse(body) : '';
+
+    if (domainUrl === 'ping') return this.pong(data);
+
+    const Domain = this.domains[capitalizeFirstLetter(domainUrl)];
+    if (!Domain) throw new Error('404, Wrong domain.');
+
     const instance = new Domain(data);
 
     const result = await instance[methodUrl]();
 
-    console.log(result);
-
     if (!result) throw new Error('500, Something went wrong.');
 
     return result;
+  }
+
+  pong({ id = '?' }) {
+    return `Ping from the ${id}\nPong :)`;
   }
 }
 
