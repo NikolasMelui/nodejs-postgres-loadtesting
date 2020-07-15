@@ -14,3 +14,7 @@ prettier: ;@echo "Prettiering the project...\n"; \
 	./node_modules/.bin/prettier ./src/ --wtire
 test: ;@echo "Testing the project...\n"; \
 	node ./src/tests
+k6_ping_test: ;@echo "Testing the ping with k6...\n"; \
+	k6 run ./src/k6_tests/k6_ping_test.js
+k6_users_test: ;@echo "Testing the users with k6...\n"; \
+	k6 run ./src/k6_tests/k6_users_test.js

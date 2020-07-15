@@ -36,7 +36,9 @@
     "eslint": "./node_modules/.bin/eslint ./src/ --max-warnings=0",
     "eslint:fix": "./node_modules/.bin/eslint ./src/ --fix",
     "prettier": "./node_modules/.bin/prettier ./src/ --write",
-    "test": "node ./src/tests"
+    "test": "node ./src/tests",
+    "k6_ping_test": "k6 run ./src/k6_tests/k6_ping_test.js",
+    "k6_users_test": "k6 run ./src/k6_tests/k6_users_test.js"
   },
   "repository": {
     "type": "git",
