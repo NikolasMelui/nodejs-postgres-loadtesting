@@ -16,9 +16,13 @@ const hashPassword = (password, salt) =>
     resolve(hashedPassword);
   });
 
+const capitalizeFirstLetter = (string) =>
+  string.charAt(0).toUpperCase() + string.slice(1);
+
 module.exports = {
   getApplicationHost,
   getApplicationPort,
   generateSalt,
   hashPassword,
+  capitalizeFirstLetter,
 };
