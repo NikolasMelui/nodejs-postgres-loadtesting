@@ -26,7 +26,6 @@ class Item {
       this.title,
     ]);
     const result = dbResult.rows;
-    console.log(dbResult);
     return result;
   }
 }
