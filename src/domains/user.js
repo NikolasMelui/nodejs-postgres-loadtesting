@@ -18,7 +18,9 @@ class User {
       'INSERT INTO users(login, password, salt) VALUES($1, $2, $3)',
       [this.login, hashedPassword, salt],
     );
-    return dbResult.rowCount ? 1 : 0;
+    return dbResult.rowCount
+      ? `User with login ${this.login} was successfully created`
+      : '...';
   }
 
   async signin() {
