@@ -8,12 +8,20 @@ const {
   APPLICATION_SERVER_PORT,
 } = require('./config');
 
+const User = require('./domains/user');
+const Item = require('./domains/item');
+
+const domains = {
+  User,
+  Item,
+};
+
 http
   .createServer(async (req, res) => {
     try {
       req.setEncoding('utf8');
 
-      const router = new Router(req);
+      const router = new Router(req, domains);
       const result = await router.route();
 
       res.writeHead(200, 'OK', { 'Content-Type': 'application/json' });
