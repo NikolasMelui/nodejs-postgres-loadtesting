@@ -23,6 +23,7 @@ const dataFactory = (argv) => ({
   '/item/find': {
     title: argv[3] ?? '',
   },
+  '/ping': { id: argv[3] },
 });
 
 const sendRequest = (options, data) =>
